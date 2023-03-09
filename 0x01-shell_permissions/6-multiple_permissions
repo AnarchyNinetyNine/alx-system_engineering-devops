@@ -1,2 +1,2 @@
-#!/bin/bsah
-chmod 774
+#!/bin/bash
+chmod 774 hello
