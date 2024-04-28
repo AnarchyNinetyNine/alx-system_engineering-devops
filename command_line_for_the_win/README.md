@@ -48,7 +48,7 @@ sftp 2323ef2c367a@2323ef2c367a.392759df.alx-cod.online
 cd /root/alx-system_engineering-devops/command_line_for_the_win/
 
 # Navigate to the local directory containing screenshots
-lcd /path/to/local/screenshots/directory/
+lcd /Deasktop/command\ lines
 
 # Upload screenshots to sandbox directory
 put 0-first_9_tasks.jpg
