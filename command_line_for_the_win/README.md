@@ -32,7 +32,7 @@ The screenshots were uploaded to a sandbox environment and subsequently pushed t
       - Used `put` command in SFTP to upload screenshots to the specified directory on the sandbox environment.
 
 3. **Confirmation and Git Push**:
-   - Confirmed successful transfer by checking the sandbox directory.
+   - Confirmed successful transfer by checking the sandbox directory with `ls`.
       - After transferring screenshots, utilized `ssh` to access the sandbox environment.
          - Added the uploaded files to the Git repository, committed changes, and pushed to GitHub.
 
@@ -57,6 +57,9 @@ put 1-next_9_tasks.jpg
 put 1-next_9_tasks.png
 put 2-next_9_tasks.jpg
 put 2-next_9_tasks.png
+
+# Confirm successful transfer
+ls
 
 # Exit SFTP
 exit
