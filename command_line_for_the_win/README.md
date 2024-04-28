@@ -25,7 +25,7 @@ The screenshots were uploaded to a sandbox environment and subsequently pushed t
 
 1. **Establishing Connection to Sandbox via SFTP**:
    - Opened a terminal/command prompt.
-      - Used SFTP command-line tool to connect to the sandbox environment using provided credentials.
+      - Used `sftp 2323ef2c367a@2323ef2c367a.392759df.alx-cod.online` to connect to the sandbox environment using provided credentials.
 
 2. **Navigating and Uploading**:
    - Navigated to the directory where the screenshots were located on the local machine.
@@ -33,7 +33,7 @@ The screenshots were uploaded to a sandbox environment and subsequently pushed t
 
 3. **Confirmation and Git Push**:
    - Confirmed successful transfer by checking the sandbox directory.
-      - After transferring screenshots, utilized SSH to access the sandbox environment.
+      - After transferring screenshots, utilized `ssh` to access the sandbox environment.
          - Added the uploaded files to the Git repository, committed changes, and pushed to GitHub.
 
 ## SFTP Command Usage
@@ -42,7 +42,7 @@ To perform the file transfer using SFTP, the following commands were used within
 
 ```bash
 # Connect to sandbox environment via SFTP
-sftp username@hostname
+sftp 2323ef2c367a@2323ef2c367a.392759df.alx-cod.online
 
 # Navigate to the desired directory on the sandbox
 cd /root/alx-system_engineering-devops/command_line_for_the_win/
