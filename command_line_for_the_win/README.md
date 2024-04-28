@@ -59,4 +59,4 @@ put 2-next_9_tasks.jpg
 put 2-next_9_tasks.png
 
 # Exit SFTP
-exit'''
+exit
