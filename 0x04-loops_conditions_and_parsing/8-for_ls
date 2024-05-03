@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# This script displays the content of the current directory
+# in a list format, showing only the part of each filename
+# that comes after the first dash ("-").
+
+# Loop through each file in the current directory
+for file in *
+do
+    if [[ -f "$file" ]]; then
+        # Extract the part of the filename after the first dash ("-")
+        # using parameter expansion (${file#*-})
+        filename_part="${file#*-}"
+        
+        # Check if the extracted filename part is not empty
+        if [[ -n "$filename_part" ]]; then
+            echo "$filename_part"
+        fi
+    fi
+done
+
