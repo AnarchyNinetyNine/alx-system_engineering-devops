@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# 8-beheaded_process.sh: This script kills the process 7-highlander.
+kill -9 "$(pgrep -f '7-highlander')"
