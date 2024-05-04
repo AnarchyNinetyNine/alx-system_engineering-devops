@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# 100-process_and_pid_file.sh: A complex bash script
+
+# Function to handle termination signals
+cleanup_and_exit() {
+	echo "I hate the kill command"
+    	rm -f /var/run/myscript.pid  # Delete the PID file
+	exit
+}
+
+# Trap signals and execute cleanup_and_exit function on SIGTERM and SIGQUIT
+trap cleanup_and_exit SIGTERM SIGQUIT
+
+# Trap signal SIGINT (Ctrl+C) to display a custom message
+trap 'echo "Y U no love me?!"' SIGINT
+
+# Get the PID of this script
+echo $$ > /var/run/myscript.pid
+
+# Display "To infinity and beyond" indefinitely
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
+
