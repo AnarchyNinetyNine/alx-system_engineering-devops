@@ -1,11 +1,5 @@
-# Ensure pip is installed
-package { 'python3-pip':
-  ensure => 'installed',
-}
+# install flask -v 2.1.0
 
-# Install Flask version 2.1.0 using pip3
-package { 'Flask':
-  ensure   => '2.1.0',
-  provider => 'pip3',
-  require  => Package['python3-pip'],
+exec { 'flask':
+  command => '/usr/bin/pip3 -y install flask -v 2.1.0',
 }
