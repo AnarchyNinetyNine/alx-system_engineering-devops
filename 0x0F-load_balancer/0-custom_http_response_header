@@ -27,7 +27,7 @@ echo "Ceci n'est pas une page" >> /var/www/html/error_404.html
 sudo sed -i '25i\       error_page 404 /error_404.html;' /etc/nginx/sites-available/default
 
 # Add header
-sudo sed -i '26i\         add_header x-Served-By "$HOSTNAME";' /etc/nginx/sites-available/default
+sudo sed -i '26i\         add_header X-Served-By "$HOSTNAME";' /etc/nginx/sites-available/default
 
 # Restarting nginx
 sudo service nginx restart
