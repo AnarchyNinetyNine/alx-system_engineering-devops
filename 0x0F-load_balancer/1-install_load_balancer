@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# 1-install_load_balancer.sh: Configure a new Ubuntu machine to be a Load Balancer.
+# Updata & Upgrade the software
+# Install HAproxy
+# Configure and run the load balancer
+#
+#
+# Update and Upgrade the Ubuntu machine
+sudo apt update && sudo apt upgrade
+
+# Grant sudo privileges to current user
+sudo usermod -aG sudo ubuntu
+sudo chown -R "$USER":"$USER" "$HOME"/
+
+# Install HAproxy
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-2.8
+sudo apt update
+sudo apt-get install haproxy
+
+# Configure HAproxy
+sudo bash -c 'cat <<EOF >> /etc/haproxy/haproxy.cfg
+frontend www
+    mode HTTP
+    bind :80
+    default_server webserver
+
+backend webserver
+    server server_01 54.152.55.196:80 check
+    server server_02 100.25.190.97:80 check
+EOF'
+
+# Restart HAproxy
+sudo service haproxy restart
