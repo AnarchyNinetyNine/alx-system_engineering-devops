@@ -6,7 +6,7 @@
 #
 #
 # Update and Upgrade the Ubuntu machine
-sudo apt update && sudo apt -y upgrade
+sudo apt update
 
 # Grant sudo privileges to current user
 sudo usermod -aG sudo ubuntu
@@ -14,16 +14,15 @@ sudo chown -R "$USER":"$USER" "$HOME"/
 
 # Install HAproxy
 sudo apt-get install -y software-properties-common
-sudo add-apt-repository ppa:vbernat/haproxy-2.8
-sudo apt -y update
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.8
 sudo apt-get install -y haproxy
 
 # Configure HAproxy
 sudo bash -c 'cat <<EOF >> /etc/haproxy/haproxy.cfg
 frontend www
-    mode HTTP
+    mode http
     bind :80
-    default_server webserver
+    default_backend webserver
 
 backend webserver
     server server_01 54.152.55.196:80 check
