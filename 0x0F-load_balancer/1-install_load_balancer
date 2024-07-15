@@ -6,17 +6,17 @@
 #
 #
 # Update and Upgrade the Ubuntu machine
-sudo apt update && sudo apt upgrade
+sudo apt update && sudo apt -y upgrade
 
 # Grant sudo privileges to current user
 sudo usermod -aG sudo ubuntu
 sudo chown -R "$USER":"$USER" "$HOME"/
 
 # Install HAproxy
-sudo apt-get install software-properties-common
+sudo apt-get install -y software-properties-common
 sudo add-apt-repository ppa:vbernat/haproxy-2.8
-sudo apt update
-sudo apt-get install haproxy
+sudo apt -y update
+sudo apt-get install -y haproxy
 
 # Configure HAproxy
 sudo bash -c 'cat <<EOF >> /etc/haproxy/haproxy.cfg
