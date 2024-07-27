@@ -25,8 +25,3 @@ if [ $? -ne 0 ]; then
     echo "Compression failed"
     exit 1
 fi
-
-# Clean up the SQL dump file
-rm "${BACKUP_FILE}"
-
-echo "Backup and compression completed successfully"
