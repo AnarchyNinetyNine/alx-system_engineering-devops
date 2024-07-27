@@ -13,15 +13,5 @@ ARCHIVE_NAME="${DATE}.tar.gz"
 # Dump all MySQL databases
 mysqldump -u root -p"${MYSQL_ROOT_PASSWORD}" --all-databases > "${BACKUP_FILE}"
 
-if [ $? -ne 0 ]; then
-    echo "MySQL dump failed"
-    exit 1
-fi
-
 # Create a compressed archive of the dump
 tar -czvf "${ARCHIVE_NAME}" "${BACKUP_FILE}"
-
-if [ $? -ne 0 ]; then
-    echo "Compression failed"
-    exit 1
-fi
