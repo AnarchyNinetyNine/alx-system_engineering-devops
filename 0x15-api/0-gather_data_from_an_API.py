@@ -73,8 +73,8 @@ def main():
         emp_name = get_employee_name(emp_id)
         completed_tasks, total_tasks = get_employee_todos(emp_id)
         count = len(completed_tasks)
-
-        print(f"Employee {emp_name} is done with tasks({count}/{total_tasks}):")
+        s = f"Employee {emp_name} is done with tasks({count}/{total_tasks}):"
+        print(s)
         for task in completed_tasks:
             print(f"\t {task}")
     except requests.RequestException as e:
