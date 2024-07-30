@@ -4,9 +4,9 @@
     Fetch an employee's tasks from a public API and export them to a JSON file.
 """
 
+import json
 import requests
 import sys
-import json
 
 
 def get_employee_username(emp_id):
