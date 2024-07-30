@@ -4,27 +4,27 @@
     Fetch an employee's tasks from a public API and export them to a CSV file.
 """
 
+import csv
 import requests
 import sys
-import csv
 
 
-def get_employee_name(emp_id):
+def get_employee_username(emp_id):
 
     """
-        Fetch the employee name by ID from the API.
+        Fetch the employee username by ID from the API.
 
         Args:
             emp_id (int): The employee ID.
 
         Returns:
-            str: The name of the employee.
+            str: The username of the employee.
     """
 
     emp_url = f"https://jsonplaceholder.typicode.com/users/{emp_id}"
     response = requests.get(emp_url)
     response.raise_for_status()
-    return response.json()['name']
+    return response.json()['username']
 
 
 def get_employee_todos(emp_id):
@@ -50,7 +50,7 @@ def get_employee_todos(emp_id):
     ]
 
 
-def export_to_csv(emp_id, emp_name, todos):
+def export_to_csv(emp_id, emp_uname, todos):
 
     """
         Export the employee's tasks to a CSV file.
@@ -67,7 +67,7 @@ def export_to_csv(emp_id, emp_name, todos):
         # writer
         w = csv.writer(file, quoting=csv.QUOTE_ALL)
         for todo in todos:
-            w.writerow([emp_id, emp_name, todo["completed"], todo["title"]])
+            w.writerow([emp_id, emp_uname, todo["completed"], todo["title"]])
 
 
 def main():
@@ -83,9 +83,9 @@ def main():
 
     emp_id = sys.argv[1]
     try:
-        emp_name = get_employee_name(emp_id)
+        emp_username = get_employee_username(emp_id)
         todos = get_employee_todos(emp_id)
-        export_to_csv(emp_id, emp_name, todos)
+        export_to_csv(emp_id, emp_username, todos)
     except requests.RequestException as e:
         print(f"Error fetching data: {e}")
         sys.exit(1)
