@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 
+"""
+    Fetch an employee's tasks from a public API and export them to a CSV file.
+"""
+
 import requests
 import sys
 import csv
