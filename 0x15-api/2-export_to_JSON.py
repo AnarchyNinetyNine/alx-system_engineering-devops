@@ -73,7 +73,7 @@ def export_to_json(emp_id, emp_username, todos):
                     }
                     for todo in todos]
                 }
-        json.dump(data, file)
+        json.dump(data, file, indent=2)
 
 
 def main():
